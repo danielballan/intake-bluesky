@@ -51,7 +51,7 @@ class BlueskyJSONLCatalog(BlueskyInMemoryCatalog):
                 self._filename_to_mtime[filename] = mtime
                 with open(filename, 'r') as file:
                     try:
-                        name, run_start_doc = json.loads(file.readline())
+                        json.loads(file.readline())
                     except json.JSONDecodeError:
                         if not file.readline():
                             # Empty file, maybe being written to currently
